@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 #endif
 
     char* trace_file_name = argv[2];
-    struct direct_mapped_cache d_cache;
+    struct direct_mapped_cache dir_cache;
     char mem_request[20];
     uint64_t address;
     FILE *fp;
@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 
     /* Initialization */
     for (int i=0; i<NUM_BLOCKS; i++) {
-        d_cache.valid_field[i] = 0;
-        d_cache.dirty_field[i] = 0;
-        d_cache.tag_field[i] = 0;
+        dir_cache.valid_field[i] = 0;
+        dir_cache.dirty_field[i] = 0;
+        dir_cache.tag_field[i] = 0;
     }
-    d_cache.hits = 0;
-    d_cache.misses = 0;
+    dir_cache.hits = 0;
+    dir_cache.misses = 0;
 
 
     /* Opening the memory trace file */
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         /* Read the memory request address and access the cache */
         while (fgets(mem_request, 20, fp)!= NULL) {
             address = convert_address(mem_request);
-            direct_mapped_cache_access(&d_cache, address);
+            direct_mapped_cache_access(&dir_cache, address);
          //   printf("Looping");
         }
         /*Print out the results*/
@@ -62,10 +62,10 @@ int main(int argc, char *argv[])
         printf("Cache type:    Direct-Mapped Cache\n");
         printf("==================================\n");
         //printf("\n**********************************\n");
-        printf("Cache Hits:    %d\n", d_cache.hits);
-        printf("Cache Misses:  %d\n", d_cache.misses);
-        printf("Cache Hit Rate:    %f%%\n", ((float)d_cache.hits / ((float)d_cache.hits + (float)d_cache.misses)) *100);
-        printf("Cache Miss Rate:    %f%%\n", ((float)d_cache.misses / ((float)d_cache.hits + (float)d_cache.misses))*100);
+        printf("Cache Hits:    %d\n", dir_cache.hits);   /*Print the Cache hits*/
+        printf("Cache Misses:  %d\n", dir_cache.misses); /*Print the Cache Misses*/
+        printf("Cache Hit Rate:    %f%%\n", ((float)dir_cache.hits / ((float)dir_cache.hits + (float)dir_cache.misses)) *100); /*Print Cache Hit Rate percentage*/
+        printf("Cache Miss Rate:    %f%%\n", ((float)dir_cache.misses / ((float)dir_cache.hits + (float)dir_cache.misses))*100);/*Print Cache Miss Rate percentage*/
         
     }
 
