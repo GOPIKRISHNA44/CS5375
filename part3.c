@@ -277,8 +277,8 @@ int main(int argc, char *argv[])
         printf("==================================\n");
         printf("Cache Hits:    %d\n", l2.hits);
         printf("Cache Misses:  %d\n", l2.misses);
-        printf("Cache Hit Rate : %0.3f%%\n", ((float)l2.hits / (float)(l2.hits + l2.misses)) * 100);
-        printf("Cache Miss Rate : %0.3f%%\n", ((float)l2.misses / (float)(l2.hits + l2.misses)) * 100);
+        printf("Cache Hit Rate : %0.6f%%\n", ((float)l2.hits / (float)(l2.hits + l2.misses)) * 100);
+        printf("Cache Miss Rate : %0.6f%%\n", ((float)l2.misses / (float)(l2.hits + l2.misses)) * 100);
         printf("\n");
     }
 

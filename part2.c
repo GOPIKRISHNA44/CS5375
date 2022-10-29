@@ -63,9 +63,8 @@ uint64_t convert_address(char memory_addr[])
     return binary;
 }
 
-void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSize)
+void excecuteCache(int totalNumberOfBlocks, int nway, int blockSize)
 {
-    // Every thing is ready , just call the file and do the hit
     int numberOfSets = totalNumberOfBlocks / nway;
     struct direct_mapped_cache
     {
@@ -92,10 +91,8 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
     fp = fopen(trace_file_name, "r");
     uint64_t address;
 
-   // printf("%s IS THE FILENAME", trace_file_name);
     while (fgets(mem_request, 20, fp) != NULL)
     {
-        // printf("%s", mem_request);
         address = convert_address(mem_request);
         uint64_t block_addr = address >> (unsigned)log2(blockSize);
         int setNumber = block_addr % numberOfSets;
@@ -109,16 +106,10 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
         int nwayTemp = nway;
         int loopIndex = startIndex;
         int i = 0;
-        //  printf("Coming the tag %d \n",tag);
-        for (int j = startIndex; j <= endIndex; j++)
-        {
-            //   printf("\n\n\n **** At Index: %d Valid Field %d TagField %d",j,d_cache.valid_field[j],d_cache.tag_field[j]);
-        }
-        // printf("*********************");
+        
         while (nwayTemp > 0)
         {
             i++;
-            //  printf("%d ***********", loopIndex);
             if (d_cache.valid_field[loopIndex] && d_cache.tag_field[loopIndex] == tag)
             { /* Cache hit */
                 d_cache.hits += 1;
@@ -136,18 +127,15 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
 
         if (hitMade == 0)
         {
-            //   printf("Hit was zero for the index %d", hitMade);
             d_cache.misses += 1;
             if (isAnySpaceEmpty > 0)
             {
-                //  printf("Going on empty");
                 nwayTemp = nway;
                 loopIndex = startIndex;
                 while (nwayTemp > 0)
                 {
                     if (d_cache.valid_field[loopIndex] == 0)
                     {
-                        //  printf("\nInserting at the index : %d ", loopIndex);
                         d_cache.valid_field[loopIndex] = 1;
                         d_cache.tag_field[loopIndex] = tag;
                         break;
@@ -162,30 +150,26 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
                 // pick a random index and replace
 
                 int randomIndex = (rand() % (endIndex - startIndex + 1)) + startIndex;
-                //   printf("Picking a rand variable %d",randomIndex);
                 d_cache.valid_field[randomIndex] = 1;
                 d_cache.tag_field[randomIndex] = tag;
             }
         }
     }
-    // printf("\n\n\n==================================\n");
-    // printf("Cache type:n-Mapped Cache\n with no of rows: %d, number of sets:  %d", totalNumberOfBlocks, numberOfSets);
     printf("==================================\n");
-    printf("Cache Hits:    %d\n", d_cache.hits);
-    printf("Cache Misses:  %d\n", d_cache.misses);
-    printf("Cache Hit Rate : %0.3f%%\n", ((float)d_cache.hits / (float)(d_cache.hits + d_cache.misses))*100);
-    printf("Cache Miss Rate : %0.3f%%\n", ((float)d_cache.misses / (float)(d_cache.hits + d_cache.misses))*100);
+    printf("Number of Cache Hits:    %d\n", d_cache.hits);
+    printf("Number of Cache Misses:  %d\n", d_cache.misses);
+    printf("Cache Hit Rate percentage: %0.6f%%\n", ((float)d_cache.hits / (float)(d_cache.hits + d_cache.misses))*100);
+    printf("Cache Miss Rate percentage : %0.6f%%\n", ((float)d_cache.misses / (float)(d_cache.hits + d_cache.misses))*100);
     printf("\n");
     fclose(fp);
 }
 
 void startProcess(int cacheSize, int totalNumberOfBlocks, int nway, int blockSize)
 {
-    // printf("The below output is for cache with %dKB and %d bytes and %d way associative ", cacheSize, blockSize, nway);
-    readFileAndDoCacheHitOrMiss(totalNumberOfBlocks, nway, blockSize);
+    excecuteCache(totalNumberOfBlocks, nway, blockSize);
 }
 
-void performNwayAssociativeMappingforPart1()
+void executePart1()
 {
     int continueSelect = 0;
     do
@@ -193,7 +177,7 @@ void performNwayAssociativeMappingforPart1()
          long cacheSize = 32 * 1024;
     int totalNumberOfBlocks = 0;
     int ca = 0;
-    printf("For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : \n");
+    printf("Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : \n");
     scanf("%d", &ca);
     int selection = 0;
     printf("Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: ");
@@ -201,7 +185,7 @@ void performNwayAssociativeMappingforPart1()
     switch (ca)
     {
     case 1:
-        printf("\n\n*********** STARTING EXECUTION FOR 16 BYTES cache line size **************** \n");
+        printf("\n\n######### STARTING EXECUTION FOR 16 BYTES cache line size ############# \n");
         totalNumberOfBlocks = (int)cacheSize / 16;
         switch (selection)
         {
@@ -223,7 +207,7 @@ void performNwayAssociativeMappingforPart1()
 
         break;
     case 2:
-        printf("\n\n*********** STARTING EXECUTION FOR 32 BYTES cache line size **************** \n");
+        printf("\n\n######### STARTING EXECUTION FOR 32 BYTES cache line size ############# \n");
         totalNumberOfBlocks = (int)cacheSize / 32;
         switch (selection)
         {
@@ -245,7 +229,7 @@ void performNwayAssociativeMappingforPart1()
 
         break;
     case 3:
-        printf("\n\n*********** STARTING EXECUTION FOR 128 BYTES cache line size **************** \n");
+        printf("\n\n######### STARTING EXECUTION FOR 128 BYTES cache line size ############# \n");
         totalNumberOfBlocks = (int)cacheSize / 128;
         switch (selection)
         {
@@ -278,7 +262,7 @@ void performNwayAssociativeMappingforPart1()
 
    
 }
-void performNwayAssociativeMappingforPart2()
+void executePart2()
 {
 
      int continueSelect = 0;
@@ -297,7 +281,7 @@ void performNwayAssociativeMappingforPart2()
         {
         case 1:
             totalNumberOfBlocks = (int)cacheSize / 64;
-            printf("\n\n*********** STARTING EXECUTION OF  16kb cache size and 64 bytes cache line size/block size=======\n");
+            printf("\n\n######### STARTING EXECUTION OF  16kb cache size and 64 bytes cache line size/block size=======\n");
             switch (selection)
             {
             case 8:
@@ -319,7 +303,7 @@ void performNwayAssociativeMappingforPart2()
 
             break;
         case 2:
-            printf("\n\n*********** STARTING EXECUTION OF  32kb cache size and 64 bytes cache line size/block size=======\n");
+            printf("\n\n######### STARTING EXECUTION OF  32kb cache size and 64 bytes cache line size/block size=======\n");
             cacheSize = 32 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
@@ -342,7 +326,7 @@ void performNwayAssociativeMappingforPart2()
             }
             break;
         case 3:
-            printf("\n\n*********** STARTING EXECUTION OF  64kb cache size and 64 bytes cache line size/block size=======\n");
+            printf("\n\n######### STARTING EXECUTION OF  64kb cache size and 64 bytes cache line size/block size=======\n");
             cacheSize = 64 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
@@ -388,11 +372,11 @@ int main(int argc, char *argv[])
     switch (switchCase)
     {
     case 1:
-        performNwayAssociativeMappingforPart1();
+        executePart1();
         break;
 
     case 2:
-        performNwayAssociativeMappingforPart2();
+        executePart2();
         break;
     }
 }
