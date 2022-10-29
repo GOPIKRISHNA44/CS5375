@@ -1,0 +1,200 @@
+**    -------------------------------------------------------------------    **
+**                      Upcoming Scheduled Maintenance                       **
+**     ****             ****** U P D A T E ! ! !******               ****    **
+**     **** Next scheduled maintenance will occur Oct 31-Nov 8, 2022 ****    **
+**     **** Next scheduled maintenance will occur Oct 31-Nov 8, 2022 ****    **
+**     **** Next scheduled maintenance will occur Oct 31-Nov 8, 2022 ****    **
+**     **** Next scheduled maintenance will occur Oct 31-Nov 8, 2022 ****    **
+**     **** Next scheduled maintenance will occur Oct 31-Nov 8, 2022 ****    **
+**     More information at:  www.hpcc.ttu.edu/operations/maintenance.php     **
+**    -------------------------------------------------------------------    **
+**                     Upcoming HPCC Training Sessions:                      **
+**      Course                      Date                Time                 **
+**      Introduction to Nextflow    October  26, 2022   1pm to 3pm           **
+**      Introduction to MATLAB      November 9, 2022    10am to 3pm          **
+**    For more information see http://www.hpcc.ttu.edu/about/training.php    **
+**    -------------------------------------------------------------------    **
+**                   *** General Cautions and Notes ***                      **
+**    DO NOT RUN CPU-INTENSIVE JOBS ON THE LOGIN NODES! Use the scheduler!   **
+**    DO NOT TRANSFER DATA THORUGH THE LOGIN NODES! Use the data transfer    **
+**    service described on the HPCC Operations -> Data Transfer web page.    **
+**    -------------------------------------------------------------------    **
+**    *Be aware that /lustre/work and /lustre/scratch are NOT backed up.*    **
+**    Users should store important source code and data in their /home       **
+**    area and keep extra copies of such files on non-HPCC storage drives.   **
+**    Details at https://www.depts.ttu.edu/hpcc/operations/datapolicy.php    **
+**    -------------------------------------------------------------------    **
+**    For information on security and privacy of files on HPCC systems       **
+**    see https://www.depts.ttu.edu/hpcc/operations/security.php             **
+**    Contact hpccsupport@ttu.edu for help or additional information.        **
+** ************************************************************************* **
+
+      Message of the Day was last updated: October 26, 2022 at 02:45 PM
+
+2022/10/29 13:12:31.0232: [28979]:  WARNING:       mongoc: Falling back to malloc for counters.
+2022/10/29 13:12:31.0282: [28983]:  WARNING:       mongoc: Falling back to malloc for counters.
+Current Storage Usage for sminukur:
+                /home/sminukur - space:   0 of 300 GB ( 0%), file count:       79 of  1000000 files ( 0%).
+         /lustre/work/sminukur - space:   0 of 700 GB ( 0%), file count:        1 of  1000000 files ( 0%).
+
+login-20-26:$ cd CS5375/
+login-20-26:/CS5375$ clear
+login-20-26:/CS5375$ ./part2 direct trace_for_students/trace.stream
+Select 1 to  execute Question 1 or 2 to Question 2 :1
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+####### STARTING EXECUTION FOR 16 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1054393
+Number of Cache Misses:  2179662
+Cache Hit Rate percentage: 32.602818%
+Cache Miss Rate percentage : 67.397186%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+####### STARTING EXECUTION FOR 16 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1047765
+Number of Cache Misses:  2186290
+Cache Hit Rate percentage: 32.397873%
+Cache Miss Rate percentage : 67.602127%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+####### STARTING EXECUTION FOR 16 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1048044
+Number of Cache Misses:  2186011
+Cache Hit Rate percentage: 32.406502%
+Cache Miss Rate percentage : 67.593506%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+####### STARTING EXECUTION FOR 16 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1047903
+Number of Cache Misses:  2186152
+Cache Hit Rate percentage: 32.402142%
+Cache Miss Rate percentage : 67.597862%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+####### STARTING EXECUTION FOR 32 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1068994
+Number of Cache Misses:  2165061
+Cache Hit Rate percentage: 33.054291%
+Cache Miss Rate percentage : 66.945709%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+####### STARTING EXECUTION FOR 32 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1062504
+Number of Cache Misses:  2171551
+Cache Hit Rate percentage: 32.853615%
+Cache Miss Rate percentage : 67.146385%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+####### STARTING EXECUTION FOR 32 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1062487
+Number of Cache Misses:  2171568
+Cache Hit Rate percentage: 32.853092%
+Cache Miss Rate percentage : 67.146912%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+####### STARTING EXECUTION FOR 32 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1062604
+Number of Cache Misses:  2171451
+Cache Hit Rate percentage: 32.856709%
+Cache Miss Rate percentage : 67.143288%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+####### STARTING FOR 128 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1082336
+Number of Cache Misses:  2151719
+Cache Hit Rate percentage: 33.466839%
+Cache Miss Rate percentage : 66.533157%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+####### STARTING FOR 128 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1059297
+Number of Cache Misses:  2174758
+Cache Hit Rate percentage: 32.754452%
+Cache Miss Rate percentage : 67.245552%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+####### STARTING FOR 128 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1062298
+Number of Cache Misses:  2171757
+Cache Hit Rate percentage: 32.847248%
+Cache Miss Rate percentage : 67.152756%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 1
+
+Fixed 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+####### STARTING FOR 128 BYTES cache line size ############
+==================================
+Number of Cache Hits:    1061428
+Number of Cache Misses:  2172627
+Cache Hit Rate percentage: 32.820343%
+Cache Miss Rate percentage : 67.179657%
+
+=============== EXECUTION ENDED ===============
+Select 1 to continue , any other to exit: 0
+
+login-20-26:/CS5375$
