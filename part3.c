@@ -269,8 +269,8 @@ int main(int argc, char *argv[])
         printf("==================================\n");
         printf("Cache Hits:    %d\n", l1.hits);
         printf("Cache Misses:  %d\n", l1.misses);
-        printf("Cache Hit Rate : %0.9f%%\n", ((float)l1.hits / (float)(l1.hits + l1.misses)) * 100);
-        printf("Cache Miss Rate : %0.9f%%\n", ((float)l1.misses / (float)(l1.hits + l1.misses)) * 100);
+        printf("Cache Hit Rate : %0.1f%%\n", ((float)l1.hits / (float)(l1.hits + l1.misses)) * 100);
+        printf("Cache Miss Rate : %0.1f%%\n", ((float)l1.misses / (float)(l1.hits + l1.misses)) * 100);
         printf("\n");
         printf("\n==================================\n");
         printf("Cache type:     l2\n");
